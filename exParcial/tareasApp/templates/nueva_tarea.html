@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nueva Tarea</title>
+</head>
+<body>
+    <h1>Nueva Tarea</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        <label for="descripcion">Descripción:</label><br>
+        <input type="text" id="descripcion" name="descripcion"><br>
+        <label for="fecha_fin">Fecha Fin:</label><br>
+        <input type="date" id="fecha_fin" name="fecha_fin"><br>
+        <label for="estado">Estado:</label><br>
+        <input type="text" id="estado" name="estado"><br>
+        <label for="responsable">Responsable:</label><br>
+        <input type="text" id="responsable" name="responsable"><br>
+        <input type="submit" value="Guardar">
+    </form>
+</body>
+</html>
+
