@@ -1,34 +1,41 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
+    {% load static %}
 <head>
-    <title>Vista Principal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VISTA PRINCIPAL</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles_vistaprincipal.css' %}">
+   
 </head>
 <body>
-    <h1>Vista Principal</h1>
-    <button onclick="window.location.href='{% url 'nueva_tarea' %}'">Nueva Tarea</button>
-    <button id="mostrarTabla">Ver histórico</button>
-
-    <h2>Tareas</h2>
-    <table border="1" id="tablaTareas" style="display: none;">
+    <h1>VISTA PRINCIPAL - GESTOR DE TAREAS</h1>
+    <div class="button-container">
+        <button onclick="window.location.href='{% url 'nueva_tarea' %}'">Nueva Tarea</button>
+        <button id="mostrarTabla">Ver histórico</button>
+    </div>
+ 
+    <table border="1" id="tablaTareas">
         <tr>
             <th>Nombre</th>
-            <th>Descripción</th>
             <th>Fecha Fin</th>
             <th>Estado</th>
             <th>Responsable</th>
+            <th>Descripción</th>
         </tr>
         {% for tarea in tareas %}
         <tr>
             <td>{{ tarea.nombre }}</td>
-            <td>{{ tarea.descripcion }}</td>
             <td>{{ tarea.fecha_fin }}</td>
             <td>{{ tarea.estado }}</td>
             <td>{{ tarea.responsable }}</td>
+            <td>{{ tarea.descripcion }}</td>
         </tr>
         {% endfor %}
     </table>
     <script>
         document.getElementById("mostrarTabla").addEventListener("click", function() {
-            document.getElementById("tablaTareas").style.display = "block";
+            document.getElementById("tablaTareas").style.display = "table";
         });
     </script>
 </body>

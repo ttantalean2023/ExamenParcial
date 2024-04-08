@@ -1,25 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <title>Nueva Tarea</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles_nuevatarea.css' %}">
+   
 </head>
 <body>
-    <h1>Nueva Tarea</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre"><br>
-        <label for="descripcion">Descripción:</label><br>
-        <input type="text" id="descripcion" name="descripcion"><br>
-        <label for="fecha_fin">Fecha Fin:</label><br>
-        <input type="date" id="fecha_fin" name="fecha_fin"><br>
-        <label for="estado">Estado:</label><br>
-        <input type="text" id="estado" name="estado"><br>
-        <label for="responsable">Responsable:</label><br>
-        <input type="text" id="responsable" name="responsable"><br>
-        <input type="submit" value="Guardar">
-    </form>
+    <h1>CREAR NUEVA TAREA</h1>
+ 
+    <div class="container">
+        <div class="left-column">
+            <!-- Botón para regresar a la vista principal -->
+            <button onclick="window.location.href='{% url 'vista_principal' %}'">Regresar</button>
+        </div>
+        <div class="right-column">
+            <form method="post">
+                {% csrf_token %}
+                <div class="clearfix">
+                    <div class="half-width">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre">
+                    </div>
+                    <div class="half-width">
+                        <label for="descripcion">Descripción:</label>
+                        <input type="text" id="descripcion" name="descripcion">
+                    </div>
+                </div>
+               
+                <div class="clearfix">
+                    <div class="half-width">
+                        <label for="fecha_fin">Fecha Fin:</label>
+                        <input type="date" id="fecha_fin" name="fecha_fin">
+                    </div>
+                    <div class="half-width">
+                        <label for="responsable">Responsable:</label>
+                        <input type="text" id="responsable" name="responsable">
+                    </div>
+                </div>
+               
+                <div class="clearfix">
+                    <div class="half-width">
+                        <input type="submit" id="crearTarea" value="Crear tarea">
+                    </div>
+                </div>
+               
+               
+               
+            </form>
+        </div>
+    </div>
 </body>
 </html>
-
